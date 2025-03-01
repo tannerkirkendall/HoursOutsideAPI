@@ -6,16 +6,16 @@ class OutsideTrackerController < ApplicationController
   end
 
   def create
-    local_time = Time.new
     activity = OutsideTracker.new(
       user_id: current_user.id
-    )
+      )
 
-    if params[:startTime]
-      activity.update_attribute(:start_time, params[:startTime])
-    else
-      activity.update_attribute(:start_time, local_time)
-    end
+      if params[:startTime]
+        activity.update_attribute(:start_time, params[:startTime])
+      else
+        local_time = Time.new
+        activity.update_attribute(:start_time, local_time)
+      end
 
     if params[:endTime]
       activity.update_attribute(:end_time, params[:endTime])
