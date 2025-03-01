@@ -1,7 +1,7 @@
 class OutsideTrackerController < ApplicationController
   before_action :authenticate_user!
   def index
-    activity = OutsideTracker.all
+    activity = OutsideTracker.find_by(user_id: current_user.id)
     render json: { id: activity }
     # render json: UserSerializer.new(current_user).serializable_hash[:data][:attributes], status: :ok
   end
