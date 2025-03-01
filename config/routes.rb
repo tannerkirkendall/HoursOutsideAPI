@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  get "outside_tracker/index"
-  post "outside_tracker/create"
+  get "/tracker", to: "outside_tracker#index"
+  post "/tracker", to: "outside_tracker#create"
+  patch "/tracker/:id", to: "outside_tracker#update"
   get "/current_user", to: "current_user#index"
   get "activities/index"
   get "activities/show"
