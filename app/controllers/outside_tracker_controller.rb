@@ -12,6 +12,11 @@ class OutsideTrackerController < ApplicationController
       start_time: t,
       user_id: current_user.id
     )
+    p :p_end_time
+    if :p_end_time
+    begin
+      activity.update_attribute(:end_time, :p_end_time)
+    end
     if activity.save
       render json: activity, status: 200
     else
