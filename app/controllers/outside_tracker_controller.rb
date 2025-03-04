@@ -10,15 +10,15 @@ class OutsideTrackerController < ApplicationController
       user_id: current_user.id
       )
 
-      if params[:startTime]
-        activity.update_attribute(:start_time, params[:startTime])
+      if params[:start_time]
+        activity.update_attribute(:start_time, params[:start_time])
       else
         local_time = Time.new
         activity.update_attribute(:start_time, local_time)
       end
 
-    if params[:endTime]
-      activity.update_attribute(:end_time, params[:endTime])
+    if params[:end_time]
+      activity.update_attribute(:end_time, params[:end_time])
     end
 
     if params[:description]
@@ -40,12 +40,12 @@ class OutsideTrackerController < ApplicationController
       return
     end
 
-    if params[:startTime]
-      activity.update_attribute(:start_time, params[:startTime])
+    if params[:start_time]
+      activity.update_attribute(:start_time, params[:start_time])
     end
 
-    if params[:endTime]
-      activity.update_attribute(:end_time, params[:endTime])
+    if params[:end_time]
+      activity.update_attribute(:end_time, params[:end_time])
     end
 
     if params[:description]
