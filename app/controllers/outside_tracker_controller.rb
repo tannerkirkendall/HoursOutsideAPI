@@ -57,5 +57,16 @@ class OutsideTrackerController < ApplicationController
     else
       render json: { error: "did not save" }
     end
+
+  end
+
+  def delete
+    activity = OutsideTracker.find_by(id: params[:id], user_id: current_user.id).delete
+    if activity.delete
+      render json: activity, status: 200
+    else
+      render json: { error: "did not delete" }
+    end
+
   end
 end
