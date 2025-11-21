@@ -17,7 +17,7 @@ jobs:
       id: version_number
       run: echo "num=$(date +%s)" >> $GITHUB_OUTPUT
 
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v6
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag tannerk/hoursoutsideapi:${{ steps.version_number.outputs.num }}
 
